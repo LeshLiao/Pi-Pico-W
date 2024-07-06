@@ -9,15 +9,15 @@ from machine import Pin
 led = machine.Pin("LED", machine.Pin.OUT)
 relay = Pin(18, Pin.OUT)    # 14 number in is Output
 
-def ledblink():
+def ledblink(sec):
     led.value(1)
-    time.sleep(0.05)
+    time.sleep(sec)
     led.value(0)
-    time.sleep(0.05)
+    time.sleep(sec)
     led.value(1)
-    time.sleep(0.05)
+    time.sleep(sec)
     led.value(0)
-    time.sleep(0.05)
+    time.sleep(sec)
 
 def connect():
     #Connect to WLAN
@@ -26,6 +26,7 @@ def connect():
 
         ssid = data['WIFI_SSID']
         password = data['WIFI_PASSWORD']
+        print("ssid="+ssid)
         wlan = network.WLAN(network.STA_IF)
         wlan.active(True)
         wlan.connect(ssid, password)
@@ -55,11 +56,11 @@ try:
         listTestByte = list(data)
         print(listTestByte)
         if data[12] == 65:
-            relay.value(1)
-            ledblink()
+            #relay.value(1)
+            ledblink(0.05)
         if data[12] == 66:
-            relay.value(0)
-            ledblink()
+            #relay.value(0)
+            ledblink(0.5)
               
 except KeyboardInterrupt:
     machine.reset()
