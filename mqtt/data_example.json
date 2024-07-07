@@ -1,0 +1,9 @@
+{
+    "WIFI_SSID":"YOUR_WIFI_SSID",
+    "WIFI_PASSWORD":"my_password_1234",
+    "MQTT_SERVER":"test.s1.eu.hivemq.cloud",
+    "MQTT_PORT":"",
+    "MQTT_USER":"",
+    "MQTT_PASSWORD":"",
+    "MQTT_CLIENT_ID":""
+}
